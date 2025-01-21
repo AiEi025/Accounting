@@ -10,7 +10,11 @@ namespace Accounting.DataLayer.Services
 {
     public class CustomerRepository : ICustomerRepository
     {
-        Accounting_DBEntities1 db =new Accounting_DBEntities1();
+        private Accounting_DBEntities1 db;
+        public CustomerRepository(Accounting_DBEntities1 context)
+        { 
+            db = context;
+        }
 
         public bool DeleteCustomer(Customers customer)
         {
