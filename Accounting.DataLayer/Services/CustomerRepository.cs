@@ -12,7 +12,7 @@ namespace Accounting.DataLayer.Services
     {
         private Accounting_DBEntities1 db;
         public CustomerRepository(Accounting_DBEntities1 context)
-        { 
+        {
             db = context;
         }
 
@@ -59,7 +59,7 @@ namespace Accounting.DataLayer.Services
             {
                 return false;
             }
-           
+
         }
 
         public void save()

@@ -9,19 +9,19 @@ using System.Threading.Tasks;
 
 namespace Accounting.DataLayer.Context
 {
-    public class UnitOfWork:IDisposable
+    public class UnitOfWork : IDisposable
     {
-         Accounting_DBEntities1 db =new Accounting_DBEntities1();
+        Accounting_DBEntities1 db = new Accounting_DBEntities1();
         private ICustomerRepository _customerRepository;
 
         public ICustomerRepository CustomerRepository
         {
 
-            get 
+            get
             {
                 if (_customerRepository == null)
-                { 
-                _customerRepository = new CustomerRepository(db);
+                {
+                    _customerRepository = new CustomerRepository(db);
                 }
                 return _customerRepository;
             }
@@ -30,7 +30,6 @@ namespace Accounting.DataLayer.Context
 
         public void Dispose()
         {
-
             db.Dispose();
         }
     }
