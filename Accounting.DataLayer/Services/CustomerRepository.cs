@@ -76,7 +76,6 @@ namespace Accounting.DataLayer.Services
             }
             catch (Exception)
             {
-
                 return false;
             }
         }
