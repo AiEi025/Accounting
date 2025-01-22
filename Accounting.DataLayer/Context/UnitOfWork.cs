@@ -16,7 +16,6 @@ namespace Accounting.DataLayer.Context
 
         public ICustomerRepository CustomerRepository
         {
-
             get
             {
                 if (_customerRepository == null)
@@ -27,7 +26,7 @@ namespace Accounting.DataLayer.Context
             }
         }
 
-
+        
         public void Dispose()
         {
             db.Dispose();
