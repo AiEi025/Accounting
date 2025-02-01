@@ -10,7 +10,8 @@ namespace Accounting.DataLayer.Services
 {
     public class CustomerRepository : ICustomerRepository
     {
-         private Accounting_DBEntities1 db;
+
+        private Accounting_DBEntities1 db;
         public CustomerRepository(Accounting_DBEntities1 context)
         {
             db = context;
@@ -37,13 +38,13 @@ namespace Accounting.DataLayer.Services
             return true;
         }
 
-        public List<Customers> GetAllCustomers()      {    return db.Customers.ToList();   }
+        public List<Customers> GetAllCustomers() { return db.Customers.ToList(); }
 
 
 
         public IEnumerable<Customers> GetCustomersByFilter(string parameter)
         {
-            return db.Customers.Where(x => x.FullName.ToLower().Contains(parameter) || 
+            return db.Customers.Where(x => x.FullName.ToLower().Contains(parameter) ||
                                            x.Mobile.Contains(parameter) ||
                                            x.Email.ToLower().Contains(parameter)).ToList();
         }
@@ -70,10 +71,7 @@ namespace Accounting.DataLayer.Services
 
         }
 
-        public void save()
-        {
-            db.SaveChanges();
-        }
+      
 
         public bool UpdateCustomer(Customers customer)
         {

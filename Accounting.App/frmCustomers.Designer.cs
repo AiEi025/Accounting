@@ -34,8 +34,8 @@
             this.btnEditCustomer = new System.Windows.Forms.ToolStripButton();
             this.btnDeleteCustomer = new System.Windows.Forms.ToolStripButton();
             this.btnRefreshCustomer = new System.Windows.Forms.ToolStripButton();
-            this.TxtFilter = new System.Windows.Forms.ToolStripTextBox();
             this.toolStripLabel1 = new System.Windows.Forms.ToolStripLabel();
+            this.TxtFilter = new System.Windows.Forms.ToolStripTextBox();
             this.dgvCustomers = new System.Windows.Forms.DataGridView();
             this.CustomerID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.FullName = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -58,7 +58,7 @@
             this.TxtFilter});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(800, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(658, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -69,6 +69,7 @@
             this.btnAddNewCustomer.Name = "btnAddNewCustomer";
             this.btnAddNewCustomer.Size = new System.Drawing.Size(86, 22);
             this.btnAddNewCustomer.Text = "شخص جدید";
+            this.btnAddNewCustomer.Click += new System.EventHandler(this.btnAddNewCustomer_Click);
             // 
             // btnEditCustomer
             // 
@@ -85,6 +86,7 @@
             this.btnDeleteCustomer.Name = "btnDeleteCustomer";
             this.btnDeleteCustomer.Size = new System.Drawing.Size(88, 22);
             this.btnDeleteCustomer.Text = "حذف شخص";
+            this.btnDeleteCustomer.Click += new System.EventHandler(this.btnDeleteCustomer_Click);
             // 
             // btnRefreshCustomer
             // 
@@ -93,19 +95,21 @@
             this.btnRefreshCustomer.Name = "btnRefreshCustomer";
             this.btnRefreshCustomer.Size = new System.Drawing.Size(76, 22);
             this.btnRefreshCustomer.Text = "بروزرسانی";
-            // 
-            // TxtFilter
-            // 
-            this.TxtFilter.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.TxtFilter.Name = "TxtFilter";
-            this.TxtFilter.Size = new System.Drawing.Size(100, 25);
-            this.TxtFilter.TextChanged += new System.EventHandler(this.TxtFilter_TextChanged);
+            this.btnRefreshCustomer.Click += new System.EventHandler(this.btnRefreshCustomer_Click);
             // 
             // toolStripLabel1
             // 
             this.toolStripLabel1.Name = "toolStripLabel1";
             this.toolStripLabel1.Size = new System.Drawing.Size(47, 22);
             this.toolStripLabel1.Text = "جستجو :";
+            // 
+            // TxtFilter
+            // 
+            this.TxtFilter.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.TxtFilter.Name = "TxtFilter";
+            this.TxtFilter.Size = new System.Drawing.Size(100, 25);
+            this.TxtFilter.Click += new System.EventHandler(this.TxtFilter_Click);
+            this.TxtFilter.TextChanged += new System.EventHandler(this.TxtFilter_TextChanged);
             // 
             // dgvCustomers
             // 
@@ -123,42 +127,48 @@
             this.dgvCustomers.Location = new System.Drawing.Point(0, 25);
             this.dgvCustomers.Name = "dgvCustomers";
             this.dgvCustomers.ReadOnly = true;
-            this.dgvCustomers.Size = new System.Drawing.Size(800, 425);
+            this.dgvCustomers.Size = new System.Drawing.Size(658, 425);
             this.dgvCustomers.TabIndex = 1;
             // 
             // CustomerID
             // 
-            this.CustomerID.HeaderText = "کد شخص";
+            this.CustomerID.DataPropertyName = "CustomerID";
+            this.CustomerID.HeaderText = "شماره شخص";
             this.CustomerID.Name = "CustomerID";
             this.CustomerID.ReadOnly = true;
             // 
             // FullName
             // 
+            this.FullName.DataPropertyName = "FullName";
             this.FullName.HeaderText = "نام";
             this.FullName.Name = "FullName";
             this.FullName.ReadOnly = true;
             // 
             // Mobile
             // 
+            this.Mobile.DataPropertyName = "Mobile";
             this.Mobile.HeaderText = "موبایل";
             this.Mobile.Name = "Mobile";
             this.Mobile.ReadOnly = true;
             // 
             // Email
             // 
+            this.Email.DataPropertyName = "Email";
             this.Email.HeaderText = "ایمیل";
             this.Email.Name = "Email";
             this.Email.ReadOnly = true;
             // 
             // Address
             // 
+            this.Address.DataPropertyName = "Address";
             this.Address.HeaderText = "آدرس";
             this.Address.Name = "Address";
             this.Address.ReadOnly = true;
             // 
             // CustomerImage
             // 
-            this.CustomerImage.HeaderText = "عکس مشتری";
+            this.CustomerImage.DataPropertyName = "CustomerImage";
+            this.CustomerImage.HeaderText = "عکس پرسنل";
             this.CustomerImage.Name = "CustomerImage";
             this.CustomerImage.ReadOnly = true;
             // 
@@ -166,7 +176,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(658, 450);
             this.Controls.Add(this.dgvCustomers);
             this.Controls.Add(this.toolStrip1);
             this.Name = "frmCustomers";

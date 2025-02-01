@@ -13,7 +13,7 @@ namespace Accounting.App
 {
     public partial class Form1 : Form
     {
-        UnitOfWork db = new UnitOfWork();   
+        //UnitOfWork db = new UnitOfWork();   
         public Form1()
         {
             InitializeComponent();
@@ -30,8 +30,6 @@ namespace Accounting.App
         {
             frmCustomers frm = new frmCustomers();
             frm.ShowDialog();
-            
-
         }
     }
 }

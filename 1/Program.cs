@@ -31,10 +31,10 @@ namespace _1
             //Best practise ::
 
 
-            UnitOfWork unitOfWork = new UnitOfWork();
-            unitOfWork.CustomerRepository.GetAllCustomers();
-            unitOfWork.Dispose();
-            Accounting_DBEntities1 dBEntities1 = new Accounting_DBEntities1();
+            //UnitOfWork unitOfWork = new UnitOfWork();
+            //unitOfWork.CustomerRepository.GetAllCustomers();
+            //unitOfWork.Dispose();
+            //Accounting_DBEntities1 dBEntities1 = new Accounting_DBEntities1();
 
 
 
