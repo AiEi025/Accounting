@@ -14,6 +14,13 @@ namespace _1
     {
         static void Main(string[] args)
         {
+            
+            Class2 class2 = new Class2();
+
+            class2.MySoul();
+
+            Console.ReadLine();
+
             ////constructor indection
             //Accounting_DBEntities1 db = new Accounting_DBEntities1();
             //ICustomerRepository customer = new CustomerRepository(db);

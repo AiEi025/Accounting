@@ -152,7 +152,7 @@
     <Content Include="WinValidator\New Text Document.txt" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Image\" />
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

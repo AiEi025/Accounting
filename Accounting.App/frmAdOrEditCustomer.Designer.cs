@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAdOrEditCustomer));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.btnSelectPhoto = new System.Windows.Forms.Button();
             this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.TxtAddress = new System.Windows.Forms.TextBox();
@@ -41,14 +43,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.TxtName = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSelectPhoto = new System.Windows.Forms.Button();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btnSave = new System.Windows.Forms.Button();
             this.requiredFieldValidator1 = new ValidationComponents.RequiredFieldValidator(this.components);
             this.requiredFieldValidator2 = new ValidationComponents.RequiredFieldValidator(this.components);
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -61,6 +61,26 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "تصویر";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = global::Accounting.App.Properties.Resources.qse;
+            this.pictureBox1.Location = new System.Drawing.Point(0, 23);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(210, 203);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 1;
+            this.pictureBox1.TabStop = false;
+            // 
+            // btnSelectPhoto
+            // 
+            this.btnSelectPhoto.Location = new System.Drawing.Point(30, 242);
+            this.btnSelectPhoto.Name = "btnSelectPhoto";
+            this.btnSelectPhoto.Size = new System.Drawing.Size(134, 23);
+            this.btnSelectPhoto.TabIndex = 0;
+            this.btnSelectPhoto.Text = "انتخاب تصویر";
+            this.btnSelectPhoto.UseVisualStyleBackColor = true;
+            this.btnSelectPhoto.Click += new System.EventHandler(this.btnSelectPhoto_Click);
             // 
             // groupBox2
             // 
@@ -144,26 +164,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = ": نام";
             // 
-            // btnSelectPhoto
-            // 
-            this.btnSelectPhoto.Location = new System.Drawing.Point(30, 242);
-            this.btnSelectPhoto.Name = "btnSelectPhoto";
-            this.btnSelectPhoto.Size = new System.Drawing.Size(134, 23);
-            this.btnSelectPhoto.TabIndex = 0;
-            this.btnSelectPhoto.Text = "انتخاب تصویر";
-            this.btnSelectPhoto.UseVisualStyleBackColor = true;
-            this.btnSelectPhoto.Click += new System.EventHandler(this.btnSelectPhoto_Click);
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = global::Accounting.App.Properties.Resources.qse;
-            this.pictureBox1.Location = new System.Drawing.Point(0, 23);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(210, 203);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 1;
-            this.pictureBox1.TabStop = false;
-            // 
             // btnSave
             // 
             this.btnSave.Location = new System.Drawing.Point(454, 308);
@@ -200,9 +200,9 @@
             this.Text = "frmAdOrEditCustomer";
             this.Load += new System.EventHandler(this.frmAdOrEditCustomer_Load);
             this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -212,13 +212,13 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.TextBox TxtAddress;
+        public System.Windows.Forms.TextBox TxtAddress;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox TxtEmail;
+        public System.Windows.Forms.TextBox TxtEmail;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox TxtMobile;
+        public System.Windows.Forms.TextBox TxtMobile;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox TxtName;
+        public System.Windows.Forms.TextBox TxtName;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnSelectPhoto;
         private System.Windows.Forms.PictureBox pictureBox1;

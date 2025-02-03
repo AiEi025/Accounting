@@ -14,8 +14,11 @@ using ValidationComponents;
 
 namespace Accounting.App
 {
+
     public partial class frmAdOrEditCustomer : Form
     {
+        UnitOfWork db = new UnitOfWork();
+        public int customerId = 0;
         public frmAdOrEditCustomer()
         {
             InitializeComponent();
@@ -28,36 +31,72 @@ namespace Accounting.App
             {
                 //pictureBox1.Image
                 pictureBox1.ImageLocation = openfile.FileName;
-                
+
 
             }
-            
+
         }
 
         private void frmAdOrEditCustomer_Load(object sender, EventArgs e)
         {
+            //using (UnitOfWork qw = new UnitOfWork())
+            //{
+            
+            if (customerId == 0)
+            {
+                this.Text = "افزودن شخص جدید";
+            }
+            else
+            {
+                this.Text = "ویرایش شخص";
+                btnSave.Text = "ویرایش";
+                var customer = db.CustomerRepository.GetCustomersById(customerId);
+                TxtAddress.Text = customer.Address;
+                TxtEmail.Text = customer.Email;
+                TxtMobile.Text = customer.Mobile;
+                TxtName.Text = customer.FullName;
+                pictureBox1.ImageLocation = Application.StartupPath + "/Images/" + customer.CustomerImage;
 
+            }
+        
         }
 
         private void btnSave_Click(object sender, EventArgs e)
         {
-            UnitOfWork db = new UnitOfWork();   
+            
             if (BaseValidator.IsFormValid(this.components))
             {
-               
-                string location = pictureBox1.ImageLocation.ToString();
-                string imageName = Guid.NewGuid().ToString() + Path.GetExtension(location);
+
+
+
+                //string location = pictureBox1.ImageLocation.ToString();   __Location of image 
+                string imageName = Guid.NewGuid().ToString() + Path.GetExtension(pictureBox1.ImageLocation);
+                string path = Application.StartupPath + "/images/";
+                if (!Directory.Exists(path))
+                {
+                    Directory.CreateDirectory(path);
+                }
+                pictureBox1.Image.Save(path + imageName);
                 Customers customers = new Customers()
                 {
                     Address = TxtAddress.Text,
                     Email = TxtEmail.Text,
                     FullName = TxtName.Text,
                     Mobile = TxtMobile.Text,
-                    CustomerImage = "NoPhoto.jpg"
+                    CustomerImage = imageName
                 };
-                db.CustomerRepository.InsertCustomer(customers);
+                if (customerId == 0)
+                {
+                    db.CustomerRepository.InsertCustomer(customers);
+                }
+                else 
+                {
+                    customers.CustomerID = customerId;
+                    db.CustomerRepository.UpdateCustomer(customers);
+                }
                 db.save();
                 DialogResult = DialogResult.OK;
+
             }
         }
     }

@@ -71,19 +71,21 @@ namespace Accounting.DataLayer.Services
 
         }
 
-      
+
 
         public bool UpdateCustomer(Customers customer)
         {
-            try
+
+            var LOCAL = db.Set<Customers>()
+            .Local
+            .FirstOrDefault(f => f.CustomerID == customer.CustomerID);
+            if (LOCAL != null)
             {
-                db.Entry(customer).State = EntityState.Modified;
-                return true;
+                db.Entry(LOCAL).State = EntityState.Detached;
             }
-            catch (Exception)
-            {
-                return false;
-            }
+            db.Entry(customer).State = EntityState.Modified;
+            return true;
+
         }
     }
 }

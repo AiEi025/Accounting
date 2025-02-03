@@ -103,6 +103,20 @@ namespace Accounting.App
                 BindGrid();
             }
         }
+
+        private void btnEditCustomer_Click(object sender, EventArgs e)
+        {
+            if (dgvCustomers.CurrentRow != null)
+            {
+                int customerId = int.Parse(dgvCustomers.CurrentRow.Cells[0].Value.ToString());
+                frmAdOrEditCustomer frm = new frmAdOrEditCustomer();
+                frm.customerId = customerId;
+                if (frm.ShowDialog() == DialogResult.OK)
+                {
+                    BindGrid(); 
+                }
+            }
+        }
     }
 }
 

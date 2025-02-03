@@ -78,6 +78,7 @@
             this.btnEditCustomer.Name = "btnEditCustomer";
             this.btnEditCustomer.Size = new System.Drawing.Size(99, 22);
             this.btnEditCustomer.Text = "ویرایش شخص";
+            this.btnEditCustomer.Click += new System.EventHandler(this.btnEditCustomer_Click);
             // 
             // btnDeleteCustomer
             // 
