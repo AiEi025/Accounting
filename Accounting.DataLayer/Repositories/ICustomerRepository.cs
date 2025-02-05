@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Accounting.ViewModels.Customers;
 namespace Accounting.DataLayer.Repositories
 {
     public interface ICustomerRepository
@@ -11,6 +11,7 @@ namespace Accounting.DataLayer.Repositories
 
         List<Customers> GetAllCustomers();
         IEnumerable<Customers> GetCustomersByFilter(string parameter);
+        List<ListCustomerViewModel> GetNameCustomers(string filter = "");
         Customers GetCustomersById(int customerId);
 
         bool InsertCustomer(Customers customer);

@@ -71,6 +71,12 @@
     <Compile Include="frmCustomers.Designer.cs">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmNewAccounting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmNewAccounting.Designer.cs">
+      <DependentUpon>frmNewAccounting.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="WinValidator\Validator\BaseValidator.cs">
@@ -112,6 +118,9 @@
     <EmbeddedResource Include="frmCustomers.resx">
       <DependentUpon>frmCustomers.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmNewAccounting.resx">
+      <DependentUpon>frmNewAccounting.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -143,6 +152,10 @@
     <ProjectReference Include="..\Accounting.Utility\Accounting.Utility.csproj">
       <Project>{dd07f93c-a7d0-4abf-bcd9-dd2f45dd64ef}</Project>
       <Name>Accounting.Utility</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Accounting.ViewModels\Accounting.ViewModels.csproj">
+      <Project>{b9bd43d2-d73b-40f4-8d0c-44e4d12c9539}</Project>
+      <Name>Accounting.ViewModels</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

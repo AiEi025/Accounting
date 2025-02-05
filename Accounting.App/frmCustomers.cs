@@ -93,6 +93,7 @@ namespace Accounting.App
             {
                 MessageBox.Show(text: "لطفا خطی را انتخاب کنید");
             }
+            BindGrid();
         }
 
         private void btnAddNewCustomer_Click(object sender, EventArgs e)
