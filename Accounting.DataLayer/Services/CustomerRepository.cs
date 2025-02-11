@@ -41,7 +41,10 @@ namespace Accounting.DataLayer.Services
 
         public List<Customers> GetAllCustomers() { return db.Customers.ToList(); }
 
-
+        public int GetCustomerIdByName(string name)
+        {
+            return db.Customers.First(x => x.FullName == name).CustomerID;
+        }
 
         public IEnumerable<Customers> GetCustomersByFilter(string parameter)
         {

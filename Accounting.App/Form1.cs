@@ -24,7 +24,7 @@ namespace Accounting.App
 
         }
 
-        
+
 
         private void btnCustomer_Click(object sender, EventArgs e)
         {
@@ -34,9 +34,23 @@ namespace Accounting.App
 
         private void btnNewAccounting_Click(object sender, EventArgs e)
         {
-            frmNewAccounting frm = new frmNewAccounting();  
+            frmNewAccounting frm = new frmNewAccounting();
             frm.ShowDialog();
-            
+
+        }
+
+        private void btnReportPay_Click(object sender, EventArgs e)
+        {
+            frmReport frm = new frmReport();
+            frm.TypeId = 2;
+            frm.ShowDialog();
+        }
+
+        private void btnRecive_Click(object sender, EventArgs e)
+        {
+            frmReport frm = new frmReport();
+            frm.TypeId = 1;
+            frm.ShowDialog();
         }
     }
 }
