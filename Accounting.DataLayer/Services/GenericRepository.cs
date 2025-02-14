@@ -15,25 +15,27 @@ namespace Accounting.DataLayer.Services
         private DbSet<TEntity> _dbSet;
 
         public GenericRepository(Accounting_DBEntities1 db)
-        { 
+        {
 
             _db = db;
             _dbSet = _db.Set<TEntity>();
 
         }
 
-        public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity,bool>> where = null )
+
+
+        public virtual IEnumerable<TEntity> Get(Expression<Func<TEntity, bool>> where = null)
         {
             IQueryable<TEntity> query = _dbSet;
             if (where != null)
-            { 
-                query = query.Where( where );
+            {
+                query = query.Where(where);
             }
             return query.ToList();
         }
 
         public virtual void insert(TEntity entity)
-        {   
+        {
             _dbSet.Add(entity);
         }
 
@@ -42,7 +44,7 @@ namespace Accounting.DataLayer.Services
             return _dbSet.Find(Id);
         }
         public virtual void Update(TEntity entity)
-        { 
+        {
             _dbSet.Attach(entity);
             _db.Entry(entity).State = EntityState.Modified;
         }

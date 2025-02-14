@@ -14,6 +14,7 @@ namespace Accounting.App
 {
     public partial class frmNewAccounting : Form
     {
+        public int AccountID = 0;
         UnitOfWork db = new UnitOfWork();
         public frmNewAccounting()
         {
@@ -23,8 +24,25 @@ namespace Accounting.App
         private void frmNewAccounting_Load(object sender, EventArgs e)
         {
             dgvCustomers.AutoGenerateColumns = false;
-
             dgvCustomers.DataSource = db.CustomerRepository.GetNameCustomers();
+
+            if (AccountID != 0)
+            {
+                var account = db.AccountingRepository.GetById(AccountID);
+                txtAmount.Text = account.Amount.ToString();
+                txtDescription.Text = account.Description;
+                textBox1.Text = db.CustomerRepository.GetCustomerNameById(account.CustomerID);
+                if (account.TypeID == 1)
+                {
+                    rbRecive.Checked = true;
+                }
+                if (account.TypeID == 2)
+                {
+                    rbPay.Checked = true;
+                }
+                this.Text = "ویرایش";
+                btnSave.Text = "ویرایش";
+            }
         }
 
         private void dgvCustomers_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -62,9 +80,21 @@ namespace Accounting.App
                         TypeID = (rbRecive.Checked) ? 1 : 2,//در اینجا ؟ برای شرط استفاده میشود
                         DateTilte = DateTime.Now,
                         Description = txtDescription.Text
-
                     };
-                    db.AccountingRepository.insert(accounting);
+                    if (AccountID == 0)
+                    {
+                        db.AccountingRepository.insert(accounting);
+                    }
+                    else
+                    {
+                        using (UnitOfWork db2 = new UnitOfWork())
+                        {
+                            accounting.ID = AccountID;
+                            db2.AccountingRepository.Update(accounting);
+                            db2.save();
+                        }
+                           
+                    }
                     db.save();
                     DialogResult = DialogResult.OK;
                 }

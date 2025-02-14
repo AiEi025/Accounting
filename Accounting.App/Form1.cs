@@ -8,6 +8,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Accounting.Utility;
 
 namespace Accounting.App
 {
@@ -21,7 +22,25 @@ namespace Accounting.App
 
         private void Form1_Load(object sender, EventArgs e)
         {
+           
+            this.Hide();
 
+            frmLogin frm = new frmLogin();
+
+            if (frm.ShowDialog() == DialogResult.OK)
+            {
+                this.Show();
+                lbldatetime.Text = DateTime.Now.ToShamsi();
+                //lbltime.Text = DateTime.Now.ToShortTimeString();
+                lbltime.Text = DateTime.Now.ToString("HH:MM:ss");
+                
+            }
+            else
+            { 
+            Application.Exit();
+            }
+
+            
         }
 
 
@@ -51,6 +70,19 @@ namespace Accounting.App
             frmReport frm = new frmReport();
             frm.TypeId = 1;
             frm.ShowDialog();
+        }
+
+        //private void timer1_Tick(object sender, EventArgs e)
+        //{
+        //    lbltime.Text = DateTime.Now.ToString("HH:MM:ss");
+        //}
+
+        private void btnEdit_Click(object sender, EventArgs e)
+        {
+            frmLogin frm = new frmLogin();
+            frm.IsEdit = true;
+            frm.Show();
+
         }
     }
 }
