@@ -12,8 +12,26 @@ namespace _1
 {
     internal class Program
     {
+        public class sell :MyClass
+        { 
+        
+        }
+        //دیگر نمی توان از ان ازث بری کرد
+        public sealed class QSESQ
+        {
+        
+        }
+        public abstract class MyClass
+        {
+            public void qwerewq()
+            {
+                Console.WriteLine("سلام بر استاد اعظم");
+            }
+        }
         static void Main(string[] args)
         {
+            sell cell = new sell();
+            cell.qwerewq();
             
             Class2 class2 = new Class2();
 
