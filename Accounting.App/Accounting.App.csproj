@@ -175,6 +175,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Accounting.Business\Accounting.Business.csproj">
+      <Project>{47614503-D5F3-4822-AED5-ADDF3B6728BA}</Project>
+      <Name>Accounting.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Accounting.DataLayer\Accounting.DataLayer.csproj">
       <Project>{23870b0f-d3c4-4443-9d5a-7c05c4f64947}</Project>
       <Name>Accounting.DataLayer</Name>

@@ -15,7 +15,13 @@ namespace Accounting.Business
             ReportViewModel rp = new ReportViewModel();
             using (UnitOfWork db = new UnitOfWork())
             {
-                
+                DateTime startdate = new DateTime(DateTime.Now.Year , DateTime.Now.Month , 01);
+                DateTime enddate = new DateTime(DateTime.Now.Year , DateTime.Now.Month , 30);
+                var Recive = db.AccountingRepository.Get(x => x.TypeID == 1 && x.DateTilte >= startdate && x.DateTilte <= enddate).Select(x=>x.Amount).ToList();
+                var Pay = db.AccountingRepository.Get(x => x.TypeID == 2 && x.DateTilte >= startdate && x.DateTilte <= enddate).Select(x => x.Amount).ToList();
+                rp.Recive = Recive.Sum();
+                rp.Pay = Pay.Sum();
+                rp.AccountBalance = (Recive.Sum() - Pay.Sum());
             }
             return rp;
         }

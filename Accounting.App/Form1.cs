@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Accounting.Utility;
+using Accounting.ViewModels.Accounting;
+using Accounting.Business;
 
 namespace Accounting.App
 {
@@ -33,7 +35,7 @@ namespace Accounting.App
                 lbldatetime.Text = DateTime.Now.ToShamsi();
                 //lbltime.Text = DateTime.Now.ToShortTimeString();
                 lbltime.Text = DateTime.Now.ToString("HH:MM:ss");
-                
+                 Report();
             }
             else
             { 
@@ -41,6 +43,13 @@ namespace Accounting.App
             }
 
             
+        }
+        void Report()
+        {
+            ReportViewModel report = Account.ReportFormMain();
+            lblRecive.Text = report.Recive.ToString("#,0");
+            lblPay.Text = report.Pay.ToString("#,0");
+            lblAccountBalance.Text = report.AccountBalance.ToString("#,0");
         }
 
 
